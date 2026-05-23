@@ -1,3 +1,5 @@
+// Copyright 2026 Salykina Alena
+
 #include "TimedDoor.h"
 
 #include <iostream>

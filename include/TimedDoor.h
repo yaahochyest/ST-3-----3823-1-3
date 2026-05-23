@@ -1,3 +1,5 @@
+// Copyright 2026 Salykina Alena
+
 #ifndef INCLUDE_TIMEDDOOR_H_
 #define INCLUDE_TIMEDDOOR_H_
 
@@ -53,4 +55,4 @@ public:
 	void tregister(int delay, TimerClient* timerClient);
 };
 
-#endif#pragma once
+#endif  // INCLUDE_TIMEDDOOR_H_

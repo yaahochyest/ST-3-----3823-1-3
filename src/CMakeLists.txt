@@ -2,26 +2,37 @@ set(header_path "${${PROJECT_NAME}_SOURCE_DIR}/include")
 set(header ${header_path}/TimedDoor.h)
 set(src TimedDoor.cpp)
 
+# === LIBRARY ===
 add_library(${PROJECT_NAME} STATIC
   ${header}
-  ${src})
+  ${src}
+)
 
 target_include_directories(${PROJECT_NAME}
-  PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
-         ${${PROJECT_NAME}_SOURCE_DIR}/include)
+  PUBLIC
+    ${header_path}
+)
 
-add_executable(${PROJECT_NAME}.info main.cpp)
+# === MAIN EXECUTABLE ===
+add_executable(${PROJECT_NAME}.info
+  main.cpp
+)
 
 target_include_directories(${PROJECT_NAME}.info
-  PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
-         ${${PROJECT_NAME}_SOURCE_DIR}/include)
+  PUBLIC
+    ${header_path}
+)
 
 target_link_libraries(${PROJECT_NAME}.info
-  ${PROJECT_NAME})
+  PRIVATE
+    ${PROJECT_NAME}
+)
 
+# === INSTALL ===
 install(TARGETS ${PROJECT_NAME}
-        LIBRARY DESTINATION "${lib_dest}"
         ARCHIVE DESTINATION "${lib_dest}"
+        LIBRARY DESTINATION "${lib_dest}"
+
         COMPONENT library)
 
 install(TARGETS ${PROJECT_NAME}.info
