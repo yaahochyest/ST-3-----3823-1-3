@@ -21,7 +21,7 @@ class DoorTimerAdapter : public TimerClient {
  private:
     TimedDoor& door;
 
-public:
+ public:
     explicit DoorTimerAdapter(TimedDoor&);
     void Timeout() override;
 };
@@ -32,7 +32,7 @@ class TimedDoor : public Door {
     int timeoutValue;
     bool opened;
 
-public:
+ public:
     explicit TimedDoor(int timeout);
     ~TimedDoor();
 
@@ -51,7 +51,7 @@ class Timer {
 
     void sleep(int seconds);
 
-public:
+ public:
     void tregister(int delay, TimerClient* timerClient);
 };
 
