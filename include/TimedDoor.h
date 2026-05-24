@@ -4,12 +4,12 @@
 #define INCLUDE_TIMEDDOOR_H_
 
 class TimerClient {
-public:
+ public:
     virtual void Timeout() = 0;
 };
 
 class Door {
-public:
+ public:
     virtual void lock() = 0;
     virtual void unlock() = 0;
     virtual bool isDoorOpened() = 0;
@@ -18,7 +18,7 @@ public:
 class TimedDoor;
 
 class DoorTimerAdapter : public TimerClient {
-private:
+ private:
     TimedDoor& door;
 
 public:
@@ -27,7 +27,7 @@ public:
 };
 
 class TimedDoor : public Door {
-private:
+ private:
     DoorTimerAdapter* adapter;
     int timeoutValue;
     bool opened;
@@ -46,7 +46,7 @@ public:
 };
 
 class Timer {
-private:
+ private:
     TimerClient* client;
 
     void sleep(int seconds);
