@@ -1,4 +1,4 @@
-// Copyright 2026 Salykina Alena
+// Copyright 2026 Salykina Alena // b116 working version
 
 #include "TimedDoor.h"
 
